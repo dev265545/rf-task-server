@@ -32,9 +32,13 @@ app.get("/", (req, res) => {
 app.use("/users", userRoutes);
 app.use("/products", productRouter);
 app.use(cookieParser());
-
-db.sequelize.sync().then(() => {
-  app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}.`);
+db.sequelize
+  .authenticate()
+  .then(() => {
+     app.listen(process.env.PORT, () => {
+       console.log(`Server is running on port ${process.env.PORT}.`);
+     });
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
   });
-});
