@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "2479wruo",
-    "database": "testdb",
-    "host": "localhost",
+    "password": "e7kobSvTAlMiq8tarL03",
+    "database": "railway",
+    "host": "containers-us-west-179.railway.app",
     "dialect": "mysql"
   },
   "test": {
@@ -17,7 +17,7 @@
     "username": "root",
     "password": "e7kobSvTAlMiq8tarL03",
     "database": "railway",
-    "host": "hontainers-us-west-179.railway.app",
+    "host": "containers-us-west-179.railway.app",
     "dialect": "mysql"
   }
 }
