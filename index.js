@@ -32,7 +32,7 @@ app.use("/products", productRouter);
 app.use(cookieParser());
 
 db.sequelize.sync().then(() => {
-  app.listen(8080, () => {
-    console.log(`Server is running on port ${PORT}.`);
+  app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}.`);
   });
 });
