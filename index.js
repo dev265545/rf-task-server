@@ -25,7 +25,9 @@ app.use(cookieParser());
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("db has been re sync");
 // });
-
+app.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
 //routes for the user API
 app.use("/users", userRoutes);
 app.use("/products", productRouter);
