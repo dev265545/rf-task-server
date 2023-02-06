@@ -10,7 +10,7 @@ const db = require("./models");
 const userRoutes = require("./Routes/userRoute");
 const productRouter = require("./Routes/Product");
 //setting up your port
-const PORT =  7361;
+const PORT =  process.env.PORT || 8080
 
 //assigning the variable app to express
 const app = express();
@@ -30,11 +30,9 @@ app.use(cookieParser());
 app.use("/users", userRoutes);
 app.use("/products", productRouter);
 app.use(cookieParser());
-app.get("/", (req, res) => {
-  res.send("GET Request Called");
-});
+
 db.sequelize.sync().then(() => {
-  app.listen(`0.0.0.0:${PORT}`, () => {
+  app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
   });
 

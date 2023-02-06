@@ -22,13 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       cart: {
         type: DataTypes.STRING,
-        allowNull: false,
-        get() {
-          return this.getDataValue("cart").split(";");
-        },
-        set(val) {
-          this.setDataValue("cart", val.join(";"));
-        },
+       
       },
     },
     { timestamps: true }

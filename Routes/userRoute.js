@@ -75,6 +75,41 @@ router.post("/signup", async (req, res) => {
 });
 
 //login route
+router.post("/addtocart",async(req,res)=>{
+   try {
+    const {email ,cart } = req.body;
+
+    
+   const user  = await User.update(
+     { cart: cart  },
+     {
+       where: {
+         email:email,
+       },
+     }
+   );
+   return res.status(201).send(user);
+    
+}catch (error) {
+    console.log(error);
+  }})
+
+router.get("/oneuser",async(req,res)=>{
+  try {
+    const { email} = req.body;
+
+    //find a user by their email
+    const user = await User.findOne({
+      where: {
+        email: email,
+      },
+    })
+     return res.status(201).send(user);
+}catch (error) {
+    console.log(error);
+  }}
+  
+) 
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
