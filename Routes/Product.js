@@ -16,6 +16,23 @@ router.get("/", async (req,res)=>{
   }});
   res.json(allproducts);
 })
+router.get("/type", async (req, res) => {
+  let priceFrom = req.query.priceFrom || 0;
+  let priceTo = req.query.priceTo || 1000000000;
+  let type = req.query.type
+  // let type = req.query.type;
+  const allproducts = await Product.findAll({
+    where: {
+      price: {
+        [Op.between]: [priceFrom, priceTo],
+      },
+      category : {
+        [Op.eq] : type
+      }
+    },
+  });
+  res.json(allproducts);
+});
 // router.post
 
 
