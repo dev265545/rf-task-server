@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.send("GET Request Called");
 });
 db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
+  app.listen(`0.0.0.0:${PORT}`, () => {
     console.log(`Server is running on port ${PORT}.`);
   });
 
